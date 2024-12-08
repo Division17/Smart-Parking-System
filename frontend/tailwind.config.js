@@ -4,8 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
-    extend: {},
+  theme: { 
+    extend: {
+      fontFamily:{
+        oregano:['oregano', 'sans-serif'],
+        coming: [ 'Coming Soon', 'sans-serif'],
+        short:[ 'Short Stack', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
