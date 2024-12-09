@@ -3,6 +3,7 @@ import HeroSection from './HeroSection'
 import VideoBackground from './VideoBackground'
 import Features from './Features'
 import Locations from './Locations'
+import Testimonials from './Testimonials'
 const FrontLayout = () => {
   return (
 <>
@@ -10,6 +11,7 @@ const FrontLayout = () => {
   <VideoBackground></VideoBackground>
   <Features></Features>
   <Locations></Locations>
+  <Testimonials></Testimonials>
 </>
   )
 }
