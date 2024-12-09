@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-white font-oregano">ParkEase</span>
+              <span className="text-2xl font-bold text-white font-oregano">ParkEase</span>
             </div>
             <p className="text-sm">
               Making parking hassle-free with smart solutions for urban mobility.
