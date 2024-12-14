@@ -50,8 +50,7 @@ function ContactInfoItem({icon='', title='', children=[]} ) {
         icon={<Globe className="h-6 w-6 text-blue-600" />}
         title="Service Areas"
       >
-        <p>Delhi • Gurugram • Bareilly<br />Benguluru • Noida • Lucknow
-        *29-/-9/8 </p>
+        <p>Delhi • Gurugram • Bareilly<br />Benguluru • Noida • Lucknow </p>
       </ContactInfoItem>
     </div>
   );
