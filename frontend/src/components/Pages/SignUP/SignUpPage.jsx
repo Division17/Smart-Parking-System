@@ -1,7 +1,7 @@
 import React from 'react';
 import { SignUpForm } from './SignUpForm';
 
-export function SignUpPage() {
+function SignUpPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center py-12">
       <div className="w-full max-w-lg">
@@ -33,3 +33,5 @@ export function SignUpPage() {
     </div>
   );
 }
+
+export default SignUpPage
