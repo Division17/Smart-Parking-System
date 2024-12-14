@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const HeroSection = () => {
   return (
 
-    <div className="bg-gray-200 py-20 p-10 flex flex-col items-center">
+    <div className="bg-gray-200 py-20 p-10 flex flex-col items-center m-7">
         <div className="mb-12 text-center animate-fadeIn h-full w-2/3">
           <h1 className="text-4xl md:text-6xl font-bold animate-float font-short">
             Find and Book 
