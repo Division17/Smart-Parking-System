@@ -13,7 +13,7 @@ function TeamMember(
     expertise = [] 
   }) {
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 border-2  border-gray-200">
       <div className="relative">
         <img
           src={image}
@@ -23,7 +23,6 @@ function TeamMember(
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
           <h3 className="text-2xl font-semibold">{name}</h3>
-          <p className="text-white/90 mt-1">{role}</p>
         </div>
       </div>
       <div className="p-6">

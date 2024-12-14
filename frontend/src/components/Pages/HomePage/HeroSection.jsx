@@ -18,7 +18,7 @@ const HeroSection = () => {
           </p>
         </div>
 
-        <div className="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-xl animate-slideIn h-1/2 mt-10 w-1/3">
+        <div className="bg-white rounded-lg p-6 max-w-3xl mx-auto shadow-xl animate-slideIn h-1/2 mt-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
               <MapPin className="absolute left-3 top-3 text-gray-400" />

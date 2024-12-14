@@ -5,8 +5,7 @@ function Team() {
   let teamMembers = [
     {
       name: 'Dhirender Pratap Singh',
-      role: 'CEO & Founder',
-      image: '',
+      image: 'https://media.licdn.com/dms/image/v2/D4D03AQF8Jk3_DDL1rw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1695220427749?e=1739404800&v=beta&t=aFUXHI1T0tLVt2xQvQxIACsB5W7lxazLm5GYZ5lcP4o',
       email: 'saurav71412@gmail.com',
       linkedin: 'https://www.linkedin.com/in/dhirender-pratap-singh-d1705/',
       twitter: 'https://x.com/DhirendrePratap',
@@ -15,8 +14,7 @@ function Team() {
     },
     {
       name: 'Sapna Singh',
-      role: 'Operations Director',
-      image: '',
+      image: 'https://media.licdn.com/dms/image/v2/D5635AQEACBfTyZ2ARw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1719441209076?e=1734786000&v=beta&t=7WrRiE0vdFS8O18YkH2j3trStHTr1XwSlbrix22ACd4',
       email: 'sappysingh1004@gmail.com',
       linkedin: 'https://www.linkedin.com/in/sapna-singh-3933b9228/',
       bio: '',
@@ -24,11 +22,19 @@ function Team() {
     },
     {
       name: 'Kajal',
-      role: 'Customer Success Manager',
-      image: '',
-      email: 'emily@parkease.com',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQGE3vLjstoo0A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708450847198?e=1739404800&v=beta&t=o5J5KfJW1mX826Njr59d4vV-KIprvZoqeUlMJZfTCPE',
+      email: '',
       bio: '',
-      expertise: ['Full Stack Developer'],
+      linkedin:'https://www.linkedin.com/in/kajal99/',
+      expertise: ['Full Stack Developer', 'C++'],
+    },
+    {
+      name: 'Shivang Raman',
+      image: 'https://media.licdn.com/dms/image/v2/C4E03AQECvwYMOGaNhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1646815121743?e=1739404800&v=beta&t=RIdk93d6Ngr8Jfz0QTFo7PoGvzjHL0j5nyo6h9kKRec',
+      email: '',
+      bio: '',
+      linkedin:'https://www.linkedin.com/in/shivang-raman-73a799231/',
+      expertise: ['Machine Learning','C++'],
     },
   ];
 
