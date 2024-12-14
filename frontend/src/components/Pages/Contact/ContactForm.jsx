@@ -24,7 +24,7 @@ import React, { useState } from 'react';
   const labelClasses = "block text-sm font-medium text-gray-700";
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-sm space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white p-6 border-2 border-gray-100 rounded-lg shadow-xl space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className={labelClasses}>Full Name</label>
