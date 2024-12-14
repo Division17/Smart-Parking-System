@@ -5,6 +5,7 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Sarah Johnson",
+      star: 5,
       role: "Regular Customer",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80",
       text: "Finding parking used to be a nightmare. ParkEase has made it incredibly simple and stress-free!"
@@ -12,12 +13,14 @@ const Testimonials = () => {
     {
       name: "Michael Chen",
       role: "Business Owner",
+      star: 4,
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80",
       text: "The convenience of booking parking spots in advance has saved me countless hours."
     },
     {
       name: "Emily Davis",
       role: "Daily Commuter",
+      star: 3,
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=128&h=128&q=80",
       text: "I love how easy it is to find and book parking spots near my workplace."
     }
@@ -48,7 +51,7 @@ const Testimonials = () => {
                 </div>
               </div>
               <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
+                {[...Array(testimonial.star)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
