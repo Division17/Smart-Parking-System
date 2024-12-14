@@ -1,5 +1,14 @@
+import { TestTubeDiagonal } from 'lucide-react'
 import React from 'react'
 
+let data = {
+  date:'2024-12-13',
+  place:'Lucknow',
+  Entery_Time:'11:40',
+  Exit_time:'3:40',
+  Total_time:'4 hrs',
+  Vehicle_no:'UP25C9019'
+}
 const ParkingHistory = () => {
   return (
     <>
@@ -22,28 +31,12 @@ const ParkingHistory = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 2024-12-13 </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> Downtown </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 08:00 AM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 12:00 PM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 4 hrs </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> AB123CD </td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 2024-12-14 </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> City Mall </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 09:30 AM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 11:45 AM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 2 hrs 15 mins </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> XY456EF </td>
-                  </tr>
-                  <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 2024-12-15 </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> Airport </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 07:00 AM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 10:30 AM </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> 3 hrs 30 mins </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> GH789IJ </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.date}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.place}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.Entery_Time}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.Exit_time} </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.Total_time} </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {data.Vehicle_no} </td>
                   </tr>
                 </tbody>
               </table>

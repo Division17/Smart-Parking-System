@@ -2,7 +2,7 @@ import React from 'react';
 import TeamMember from './TeamMember';
 
 function Team() {
-  const teamMembers = [
+  let teamMembers = [
     {
       name: 'Dhirender Pratap Singh',
       role: 'CEO & Founder',
