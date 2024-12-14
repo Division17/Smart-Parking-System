@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Car } from 'lucide-react';
+import {Link} from 'react-router'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-white font-oregano">ParkEase</span>
+              <Link to='/'><span className="text-2xl font-bold text-white font-oregano">ParkEase</span></Link>
             </div>
             <p className="text-sm">
               Making parking hassle-free with smart solutions for urban mobility.
@@ -34,7 +35,7 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-indigo-400 transition-colors">About Us</a>
+                <Link to='/team' className="hover:text-indigo-400 transition-colors">About Us</Link>
               </li>
               <li>
                 <a href="#" className="hover:text-indigo-400 transition-colors">How It Works</a>
