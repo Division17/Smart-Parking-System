@@ -1,5 +1,6 @@
 import React from 'react';
 import { SignUpForm } from './SignUpForm';
+import { Link } from 'react-router';
 
 function SignUpPage() {
   return (
@@ -24,9 +25,9 @@ function SignUpPage() {
           
           <p className="text-center text-sm text-gray-500">
             Already have an account?{' '}
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
-              Sign in
-            </a>
+            <Link to='/auth/login' className="text-blue-600 hover:text-blue-800 font-medium">
+              Log in
+            </Link>
           </p>
         </div>
       </div>

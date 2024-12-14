@@ -1,5 +1,6 @@
 import React from 'react';
 import {LoginForm} from "./LoginForm"
+import { Link } from 'react-router';
 
  function LoginPage() {
   return (
@@ -24,9 +25,9 @@ import {LoginForm} from "./LoginForm"
           
           <p className="text-center text-sm text-gray-500">
             Don't have an account?{' '}
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            <Link to='/auth/signup' className="text-blue-600 hover:text-blue-800 font-medium">
               Sign up
-            </a>
+            </Link>
           </p>
         </div>
       </div>
