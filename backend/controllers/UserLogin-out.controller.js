@@ -42,7 +42,7 @@ export const UserLogIn = async (req, res) => {
 
         const { password: pass, ...rest } = user._doc;
 
-        res.status(200).cookie("access-token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, https: true, sameSite: 'strict' }).json({
+       return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, https: true, sameSite: 'strict' }).json({
             message: `Welcome back ${user.name}`,
             success: true,
         })
@@ -56,7 +56,7 @@ export const UserLogIn = async (req, res) => {
 
 export const UserLogOut = async(req, res)=>{
     try {
-        return res.status(200).cookie('acess-token',"", { maxAge:0}).json({
+        return res.status(200).cookie('token',"", { maxAge:0}).json({
             message: "Logged out successfully.",
             success: true
         })
