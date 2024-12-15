@@ -104,18 +104,6 @@ export function SignUpForm() {
         />
       </div>
 
-      <div className="relative flex items-center">
-        <Calendar className="absolute left-3 w-5 h-5 text-gray-400" />
-        <input
-          className="pl-10 w-full px-4 py-3 appearance-none bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-          type="date"
-          name="dateOfBirth"
-          value={formData.dateOfBirth}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
       <button type="submit"
         className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
         Create Account
