@@ -2,7 +2,7 @@ import { User } from '../models/User.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-export const UserLogin = async (req, res) => {
+export const UserLogIn = async (req, res) => {
     try {
         const { email, password } = req.body;
         if (
@@ -54,7 +54,7 @@ export const UserLogin = async (req, res) => {
 
 // logout
 
-export const Logout = async(req, res)=>{
+export const UserLogOut = async(req, res)=>{
     try {
         return res.status(200).cookie('acess-token',"", { maxAge:0}).json({
             message: "Logged out successfully.",
