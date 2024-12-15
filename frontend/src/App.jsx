@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Header></Header>
         <Routes>
-         <Route path="/" element={<HomePage/>} />
+         <Route path="/" element={<BookingMain/>} />
          <Route path="/team" element={<Team/>} />
          <Route path="/contact" element={<Contact></Contact>} />
          <Route path="/auth/login" element={<LoginPage/>} />
