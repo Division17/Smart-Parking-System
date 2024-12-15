@@ -12,7 +12,7 @@ let data = {
 const ParkingHistory = () => {
   return (
     <>
-      <div className='rounded-lg p-8 border-2 border-gray-100 bg-white shadow-xl'>
+      <div className='rounded-lg p-8 border-2 border-gray-100 my-8 bg-white shadow-xl'>
         <div className="mb-4">
           <h2 className="text-2xl font-bold text-gray-800">Parking History</h2>
         </div>

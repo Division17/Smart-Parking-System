@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
         required: true,
     },
 
-    vehicleNumber: {
+    vehiclenumber: {
         type: String,
         unique: true,
         required: true,

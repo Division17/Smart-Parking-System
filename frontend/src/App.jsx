@@ -9,6 +9,7 @@ import SignUpPage  from './components/Pages/SignUP/SignUpPage'
 import UserProfile from './components/Pages/UserProfile/UserProfile'
 import BookingMain from './components/Pages/BookingPage/BookingMain'
 
+
 function App() {
 
 
@@ -17,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Header></Header>
         <Routes>
-         <Route path="/" element={<BookingMain/>} />
+         <Route path="/" element={<UserProfile/>} />
          <Route path="/team" element={<Team/>} />
          <Route path="/contact" element={<Contact></Contact>} />
          <Route path="/auth/login" element={<LoginPage/>} />

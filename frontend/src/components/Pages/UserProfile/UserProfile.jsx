@@ -1,13 +1,13 @@
 import React from 'react'
-import UserPic from './UserPic'
+import UserDetail from './UserDetail'
 import ParkingHistory from './ParkingHistory'
 
 const UserProfile = () => {
     return (
         <>
-            <div className='w-screen flex justify-center py-16'>
-                <div className='w-4/5'>
-                    <UserPic></UserPic>
+            <div className='w-full flex items-center pt-16 flex-col'>
+                <div className=''>
+                    <UserDetail></UserDetail>
                     <ParkingHistory></ParkingHistory>
                 </div>
             </div>

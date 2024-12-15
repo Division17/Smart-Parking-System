@@ -4,8 +4,8 @@ import { UserLogIn, UserLogOut } from '../controllers/UserLogin-out.controller.j
 
 const router = express.Router();
 
-router.post('/auth/signup', UserRegister)
-router.post('/auth/login', UserLogIn)
-router.post('/auth/logout', UserLogOut)
+router.post('/signup', UserRegister)
+router.post('/login', UserLogIn)
+router.post('/logout', UserLogOut)
 
 export default router;

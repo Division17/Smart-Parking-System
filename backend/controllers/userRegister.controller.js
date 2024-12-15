@@ -23,7 +23,7 @@ const UserRegister = async (req, res) => {
         })
     }
 
-    const user = await User.findOne({ phoneNumber })
+    const user = await User.findOne({ email })
     if (user) {
         res.status(400).json({
             message: "User Already Exists with following creditentials.",
