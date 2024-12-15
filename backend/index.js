@@ -3,6 +3,7 @@ import connectDB from './utils/db.js';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import router from './routes/User.routes.js';
 
 dotenv.config();
 
@@ -20,9 +21,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/', (req,res,next)=>{
-    res.send(`<h1>Hello World! </h1>`)
-})
+app.use('/api/user', router)
+
+// app.get('/', (req,res,next)=>{
+//     res.send(`<h1>Hello World! </h1>`)
+// })
 
 app.listen(PORT, ()=>{
     console.log(`server is running at port ${PORT}`)
