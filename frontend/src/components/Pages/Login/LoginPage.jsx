@@ -25,7 +25,7 @@ import { Link } from 'react-router';
           
           <p className="text-center text-sm text-gray-500">
             Don't have an account?{' '}
-            <Link to='/auth/signup' className="text-blue-600 hover:text-blue-800 font-medium">
+            <Link to='/signup' className="text-blue-600 hover:text-blue-800 font-medium">
               Sign up
             </Link>
           </p>

@@ -21,8 +21,10 @@ function App() {
          <Route path="/" element={<UserProfile/>} />
          <Route path="/team" element={<Team/>} />
          <Route path="/contact" element={<Contact></Contact>} />
-         <Route path="/auth/login" element={<LoginPage/>} />
-         <Route path="/auth/signup" element={<SignUpPage/>} />
+         <Route path="/login" element={<LoginPage/>} />
+         <Route path="/signup" element={<SignUpPage/>} />
+         <Route path = "/profile" element={<UserProfile/>}/>
+         <Route path = "/book" element={<BookingMain/>}/>
         </Routes>
         <Footer></Footer>
       </BrowserRouter>

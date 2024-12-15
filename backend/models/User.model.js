@@ -33,8 +33,12 @@ const userSchema = mongoose.Schema({
     profile: {
         type:String,
         default: "https://static.vecteezy.com/system/resources/previews/000/623/239/original/auto-car-logo-template-vector-icon.jpg",
-    }
+    },
 
+    bio: {
+        type:String
+    }
+ 
 })
 
 export const User = mongoose.model('User', userSchema);
