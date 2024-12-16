@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/signup', UserRegister)
 router.post('/login', UserLogIn)
 router.post('/logout', UserLogOut)
-router.get('/profile', isAuthenticated, (req, res)=>{
+router.get('/check-auth', isAuthenticated, (req, res)=>{
      res.status(200).json({
         message:`Welcome back`
      })

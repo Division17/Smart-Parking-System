@@ -26,13 +26,12 @@ export const UserLogIn = async (req, res) => {
         }
 
 
-       const passwordCheck = await bcrypt.compareSync(password, user.password)
-       if (!passwordCheck){
-           return res.status(400).json({
-            message: " Credentials don't match. ",
+        if (user.password !== password) {
+          return res.status(400).json({
+            message: "Credentials don't match.",
             success: false,
-           })
-       }
+          });
+        }
 
         const tokenData = {
             userId: user._id

@@ -16,7 +16,6 @@ const userSchema = mongoose.Schema({
     vehiclenumber: {
         type: String,
         unique: true,
-        required: true,
     },
 
     password: {

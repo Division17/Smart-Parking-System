@@ -1,58 +1,41 @@
-import { User } from '../models/User.model.js';
-import bcrypt from 'bcryptjs';
+import { User} from '../models/User.model.js'
 
 const UserRegister = async (req, res) => {
+  const { name, email, number, password } = req.body;
 
-    const { name, number, email, password, vehiclenumber } = req.body;
-    if (
-        !name ||
-        !number ||
-        !email ||
-        !password ||
-        !vehiclenumber ||
-        name == "" ||
-        number == "" ||
-        email == "" ||
-        password == "" ||
-        vehiclenumber == ""
+  // Validate input
+  if (!name || !email || !number || !password) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
 
-    ) {
-        res.status(400).json({
-            message: "All Fields are Required",
-            success: false,
-        })
+  try {
+    // Check for duplicate email
+    const existingUserByEmail = await User.findOne({ email });
+    if (existingUserByEmail) {
+      return res.status(400).json({ error: 'Email already exists' });
     }
 
-    const user = await User.findOne({ email })
-    if (user) {
-        res.status(400).json({
-            message: "User Already Exists with following creditentials.",
-            success: false,
-        })
+    // Check for duplicate phone number
+    const existingUserByNumber = await User.findOne({ number });
+    if (existingUserByNumber) {
+      return res.status(400).json({ error: 'Phone number already exists' });
     }
 
-    const hashedPassword = await bcrypt.hashSync(password, 10);
-
+    // Create new user
     const newUser = new User({
-        name,
-        number,
-        email,
-        vehiclenumber,
-        password: hashedPassword,
+      name,
+      email,
+      number,
+      password,
+    });
 
-    })
+    await newUser.save();
 
-    try {
-        await newUser.save();
-        res.status(200).json({
-            message: "User registerd",
-            success: true,
-        })
-
-    } catch (error) {
-        console.log(error)
-    }
-
-}
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
 
 export default UserRegister;

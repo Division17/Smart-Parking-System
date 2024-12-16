@@ -41,7 +41,7 @@ const HeroSection = () => {
               />
             </div>
           </div>
-          <Link to='/auth/login'><button className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-500 transition-all duration-200 transform hover:scale-105 hover:shadow-lg animate-pulse-slow">
+          <Link to='/login'><button className="w-full mt-4 bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-500 transition-all duration-200 transform hover:scale-105 hover:shadow-lg animate-pulse-slow">
             Find Parking
           </button></Link>
         </div>
