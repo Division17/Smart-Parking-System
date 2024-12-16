@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
-import ProfileCard from './ProfileCard';
+import React, { useState, useEffect } from 'react';
+import UserDetail from './UserDetail';
+import axios from 'axios'
 
+const fetchUserIdByEmail = async (email) => {
+  try {
+    const response = await axios.get('/api/user', {
+      params: { email }
+    });
+    return response.data.data.id;
+  } catch (error) {
+    console.error('Error fetching user ID:', error.message);
+    throw error;
+  }
+};
 
-function UserDetail() {
-  const [profileData, setProfileData] = useState({
-    name: "John Doe",
-    imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-    email: "john.doe@example.com",
-    phone: "+1 (555) 123-4567",
-    bio: "Passionate software engineer with over 8 years of experience in full-stack development. Specialized in building scalable web applications and mentoring junior developers. Always eager to learn new technologies and solve complex problems.",
-    title: "Senior Software Engineer",
-    location: "San Francisco, CA"
-  });
+function App() {
+  const [userId, setUserId] = useState(null);
+  const [error, setError] = useState('');
+  
+  useEffect(() => {
+    const getUserId = async () => {
+      try {
+        const email = response.data.email; 
+        const id = await fetchUserIdByEmail(email);
+        setUserId(id);
+      } catch (error) {
+        setError('Failed to fetch user ID');
+      }
+    };
 
-  const handleProfileUpdate = (newData) => {
-    setProfileData(newData);
-  };
+    getUserId();
+  }, []);
 
   return (
-    
-      <div className="container ">
-        <ProfileCard data={profileData} onUpdate={handleProfileUpdate} />
-      </div>
+    <div className="App">
+      {error && <p className="text-red-600">{error}</p>}
+      {userId && <UserDetail userId={userId} />}
+    </div>
   );
 }
 
-export default UserDetail;
+export default App;

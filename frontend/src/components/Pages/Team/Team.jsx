@@ -22,7 +22,7 @@ function Team() {
     },
     {
       name: 'Kajal',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQGE3vLjstoo0A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708450847198?e=1739404800&v=beta&t=o5J5KfJW1mX826Njr59d4vV-KIprvZoqeUlMJZfTCPE',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQE0LSxQ7r3BLg/profile-displayphoto-shrink_400_400/B56ZPMrRV7GkAg-/0/1734305717462?e=1740009600&v=beta&t=v2uIoBURN2VQRAjkHMZF_RqEaye592KFuFrZosRN5V0',
       email: '',
       bio: '',
       linkedin:'https://www.linkedin.com/in/kajal99/',

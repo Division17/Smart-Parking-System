@@ -13,11 +13,6 @@ const userSchema = mongoose.Schema({
         required: true,
     },
 
-    vehiclenumber: {
-        type: String,
-        unique: true,
-    },
-
     password: {
         type: String,
         required: true
@@ -36,7 +31,13 @@ const userSchema = mongoose.Schema({
 
     bio: {
         type:String
-    }
+    },
+
+    location:{
+        type:String,
+    },
+
+    
  
 })
 

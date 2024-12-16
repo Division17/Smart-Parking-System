@@ -17,7 +17,7 @@ export function LoginForm() {
             const response = await axios.post('/api/user/login', { email, password });
             setMessage(response.data.message);
             setLoading(false);
-            navigate('/profile'); 
+            navigate('/profile', { state: { email } });  // Pass email as state
         } catch (error) {
             setLoading(false);
             setMessage(error.response.data.message);

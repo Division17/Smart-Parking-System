@@ -10,7 +10,6 @@ function ProfileEditForm({ data, onSubmit, onCancel }) {
       email: formData.get('email'),
       phone: formData.get('phone'),
       bio: formData.get('bio'),
-      title: formData.get('title'),
       location: formData.get('location'),
     };
     onSubmit(updatedData);
@@ -72,20 +71,6 @@ function ProfileEditForm({ data, onSubmit, onCancel }) {
               id="phone"
               name="phone"
               defaultValue={data.phone}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-              Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              defaultValue={data.title}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               required
             />
