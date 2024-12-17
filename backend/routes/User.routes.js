@@ -2,7 +2,7 @@ import express from 'express';
 import UserRegister from '../controllers/userRegister.controller.js';
 import { UserLogIn, UserLogOut } from '../controllers/UserLogin-out.controller.js'
 import isAuthenticated from '../middlewares/isAuthenticated.js'
-import GetUserById from '../controllers/GetUserData.controller.js';
+import GetUserData from '../controllers/GetUserData.controller.js'
 
 const router = express.Router();
 
@@ -15,5 +15,5 @@ router.get('/check-auth', isAuthenticated, (req, res)=>{
      })
 } )
 
-router.get('/user/:id', GetUserById);
+router.get('/user/:id', GetUserData);
  export default router;

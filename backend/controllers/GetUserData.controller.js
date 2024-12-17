@@ -1,6 +1,6 @@
 import { User } from '../models/User.model.js';
 
-const getUserDetail = async (req, res) => {
+const GetUserData = async (req, res) => {
   const { id } = req.params; // Assuming you fetch user by email
 
   try {
@@ -21,4 +21,4 @@ const getUserDetail = async (req, res) => {
   }
 };
 
-export default getUserByEmail;
+export default GetUserData;
