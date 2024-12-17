@@ -24,18 +24,25 @@ const userSchema = mongoose.Schema({
         unique: true,
     },
 
-    profile: {
+    imageUrl: {
         type:String,
         default: "https://static.vecteezy.com/system/resources/previews/000/623/239/original/auto-car-logo-template-vector-icon.jpg",
     },
 
     bio: {
-        type:String
+        type:String,
+        default:"N/A"
     },
 
     location:{
         type:String,
+        default: "N/A"
     },
+
+    profession: {
+       type:String,
+       default: "N/A"
+    }
 
     
  

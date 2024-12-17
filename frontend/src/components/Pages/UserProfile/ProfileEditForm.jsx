@@ -1,18 +1,26 @@
 import React from 'react';
+import axios from 'axios';
 
 function ProfileEditForm({ data, onSubmit, onCancel }) {
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const updatedData = {
       name: formData.get('name'),
       imageUrl: formData.get('imageUrl'),
       email: formData.get('email'),
-      phone: formData.get('phone'),
+      number: formData.get('number'),
       bio: formData.get('bio'),
       location: formData.get('location'),
+      profession: formData.get('profession')
     };
-    onSubmit(updatedData);
+   
+    try {
+      const response = await axios.put(`/api/user/profile/${data._id}`, updatedData)
+      onSubmit(response.data)
+    } catch (error) {
+      console.error('Error in updating Profile:', error);
+    }
   };
 
   return (
@@ -68,9 +76,9 @@ function ProfileEditForm({ data, onSubmit, onCancel }) {
             </label>
             <input
               type="tel"
-              id="phone"
-              name="phone"
-              defaultValue={data.phone}
+              id="number"
+              name="number"
+              defaultValue={data.number}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               required
             />
@@ -85,6 +93,20 @@ function ProfileEditForm({ data, onSubmit, onCancel }) {
               id="location"
               name="location"
               defaultValue={data.location}
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+              Profession
+            </label>
+            <input
+              type="text"
+              id="profession"
+              name="profession"
+              defaultValue={data.profession}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
               required
             />
