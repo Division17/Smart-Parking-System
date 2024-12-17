@@ -16,8 +16,10 @@ export function LoginForm() {
         try {
             const response = await axios.post('/api/user/login', { email, password });
             setMessage(response.data.message);
+            console.log(response.data.userId)
             setLoading(false);
-            navigate('/profile', { state: { email } });  // Pass email as state
+            navigate(`/profile/${response.data.userId}`); 
+            
         } catch (error) {
             setLoading(false);
             setMessage(error.response.data.message);

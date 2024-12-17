@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import UserDetail from './UserDetail';
 import axios from 'axios'
 
-const fetchUserIdByEmail = async (email) => {
+const fetchUserIdByEmail = async () => {
   try {
-    const response = await axios.get('/api/user', {
-      params: { email }
-    });
+    const response = await axios.get('/api/user');
     return response.data.data.id;
   } catch (error) {
     console.error('Error fetching user ID:', error.message);

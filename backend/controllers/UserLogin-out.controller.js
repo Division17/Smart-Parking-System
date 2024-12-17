@@ -1,5 +1,4 @@
 import { User } from '../models/User.model.js';
-import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const UserLogIn = async (req, res) => {
@@ -44,6 +43,7 @@ export const UserLogIn = async (req, res) => {
        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, https: true, sameSite: 'strict' }).json({
             message: `Welcome back ${user.name}`,
             success: true,
+            userId: user._id
         })
     } catch (error) {
         console.log(error)

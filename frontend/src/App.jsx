@@ -6,13 +6,9 @@ import Team from './components/Pages/Team/Team'
 import Contact from './components/Pages/Contact/Contact'
 import LoginPage from './components/Pages/Login/LoginPage'
 import SignUpPage from './components/Pages/SignUP/SignUpPage'
-import UserProfile from './components/Pages/UserProfile/UserProfile'
 import BookingMain from './components/Pages/BookingPage/BookingMain'
 
 
-function ProfileRoute() { const location = useLocation(); 
-  const email = location.state?.email || ''; 
-  return <UserProfile email={email} />; }
 
 function App() {
 
