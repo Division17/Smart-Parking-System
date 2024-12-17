@@ -7,6 +7,7 @@ import Contact from './components/Pages/Contact/Contact'
 import LoginPage from './components/Pages/Login/LoginPage'
 import SignUpPage from './components/Pages/SignUP/SignUpPage'
 import BookingMain from './components/Pages/BookingPage/BookingMain'
+import UserProfile from "./components/Pages/UserProfile/UserProfile";
 
 
 
@@ -23,7 +24,7 @@ function App() {
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/profile/:id" element={<ProfileRoute />} />
+          <Route path="/profile/:id" element={<UserProfile />} />
           <Route path="/book" element={<BookingMain />} />
         </Routes>
         <Footer></Footer>

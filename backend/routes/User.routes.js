@@ -15,5 +15,5 @@ router.get('/check-auth', isAuthenticated, (req, res)=>{
      })
 } )
 
-router.get('/user/:id', GetUserData);
+router.get('/profile/:id', GetUserData);
  export default router;
