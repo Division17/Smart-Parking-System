@@ -28,8 +28,8 @@ export function LoginForm() {
     return (
         <div className="w-full max-w-sm mx-auto mt-10">
             {loading && (
-                <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75">
-                    <div className="loader">Loading...</div>
+                <div className="fixed inset-0 font-extrabold text-2xl flex items-end justify-center bg-gray-100 bg-opacity-50">
+                    <div className="loader mb-24">Loading...</div>
                 </div>
             )}
             <form onSubmit={handleSubmit} className="space-y-6">

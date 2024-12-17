@@ -1,34 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { User, Mail, Phone, MapPin, Briefcase, Edit2 } from 'lucide-react';
 import ProfileEditForm from './ProfileEditForm';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-function ProfileCard() {
-  const { id } = useParams();
-
+function ProfileCard({data}) {
   const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState({
-    name: '',
-    imageUrl: '',
-    email: '',
-    phone: '',
-    bio: '',
-    location: '',
-    profession: ''
-  });
+  const [profileData, setProfileData] = useState(data)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/user/profile/${id}`);
-        setProfileData(response.data); 
-      } catch (error) {
-        setMessage('Error fetching user profile data');
-      }
-    };
-    fetchData();
-  }, [id]);
+useEffect(()=>{
+  setProfileData(data)
+},[data])
+
 
   const handleUpdate = async () => {
     setIsEditing(false);
