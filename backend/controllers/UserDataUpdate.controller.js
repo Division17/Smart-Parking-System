@@ -2,7 +2,7 @@ import { User } from "../models/User.model.js";
 
 const UserDataUpdate = async (req, res) => {
 
-    const { name, number, email, bio, location, profession } = req.body;
+    const { name, number, email, bio, location, profession, imageUrl } = req.body;
     const { id } = req.params
     if (!name ||
         !number ||
@@ -23,7 +23,8 @@ const UserDataUpdate = async (req, res) => {
         email,
         bio,
         location,
-        profession
+        profession,
+        imageUrl
     }
 
    try {
