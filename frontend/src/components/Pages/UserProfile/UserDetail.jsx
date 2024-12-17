@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import UserDetail from './UserDetail';
-import axios from 'axios'
+import ProfileCard from './ProfileCard';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-const fetchUserIdByEmail = async () => {
-  try {
-    const response = await axios.get('/api/user');
-    return response.data.data.id;
-  } catch (error) {
-    console.error('Error fetching user ID:', error.message);
-    throw error;
-  }
-};
-
-function App() {
-  const [userId, setUserId] = useState(null);
+function UserDetail() {
+  const { id } = useParams(); // Get userId parameter from the URL
+  const [profileData, setProfileData] = useState({
+    name: '',
+    imageUrl: '',
+    email: '',
+    phone: '',
+    bio: '',
+    location: '',
+  });
   const [error, setError] = useState('');
-  
+
   useEffect(() => {
-    const getUserId = async () => {
+    const fetchProfileData = async () => {
       try {
-        const email = response.data.email; 
-        const id = await fetchUserIdByEmail(email);
-        setUserId(id);
+        const response = await axios.get(`/api/user/${id}`);
+        setProfileData(response.data);
       } catch (error) {
-        setError('Failed to fetch user ID');
+        setError('Error fetching user data');
+        console.error(error);
       }
     };
 
-    getUserId();
-  }, []);
+    if (id) {
+      fetchProfileData();
+    }
+  }, [id]);
 
   return (
-    <div className="App">
+    <div className="container">
       {error && <p className="text-red-600">{error}</p>}
-      {userId && <UserDetail userId={userId} />}
+      <ProfileCard data={profileData} />
     </div>
   );
 }
 
-export default App;
+export default UserDetail;

@@ -23,7 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/profile" element={<ProfileRoute />} />
+          <Route path="/profile/:id" element={<ProfileRoute />} />
           <Route path="/book" element={<BookingMain />} />
         </Routes>
         <Footer></Footer>
