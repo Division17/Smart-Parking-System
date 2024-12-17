@@ -18,8 +18,6 @@ function ProfileCard() {
     profession: ''
   });
 
-  const [message, setMessage] = useState('');
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,10 +34,9 @@ function ProfileCard() {
     setIsEditing(false);
     try {
       const response = await axios.get(`/api/user/profile/${id}`);
-      setProfileData(response.data);
-      setMessage('Profile updated successfully');
+      setProfileData(response.data)
     } catch (error) {
-      setMessage('Error fetching updated data');
+     console.log(error)
     }
   };
 
@@ -55,7 +52,6 @@ function ProfileCard() {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-8 max-w-4xl w-full mx-auto relative">
-      {message && <p className="text-center text-red-600">{message}</p>}
       <button
         onClick={() => setIsEditing(true)}
         className="absolute top-4 right-4 p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-colors"
