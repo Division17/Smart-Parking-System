@@ -26,6 +26,11 @@ const parkingHistorySchema = new mongoose.Schema({
     vehicleNumber: {
         type: String,
         required: true,
+    },
+
+    status: {
+        type: String,
+        default:'Upcoming' 
     }
 
 },{

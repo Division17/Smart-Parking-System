@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 const userSchema = mongoose.Schema({
 
@@ -42,10 +42,15 @@ const userSchema = mongoose.Schema({
     profession: {
        type:String,
        default: "N/A"
-    }
+    },
 
-    
- 
+    parking : [{
+        type: Schema.Types.ObjectId, 
+        ref:'ParkingHistory'
+    }],
+
+},{
+    timestamps: true
 })
 
 export const User = mongoose.model('User', userSchema);
