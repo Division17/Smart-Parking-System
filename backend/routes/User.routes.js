@@ -10,14 +10,14 @@ const router = express.Router();
 
 router.post('/signup', UserRegister)
 router.post('/login', UserLogIn)
-router.post('/logout', UserLogOut)
-router.get('/profile/:id', GetUserData);
-router.put('/profile/:id', UserDataUpdate)
+router.post('/logout', isAuthenticated,UserLogOut)
+router.get('/profile/:id', isAuthenticated, GetUserData);
+router.put('/profile/:id', isAuthenticated, UserDataUpdate)
 
-router.get('/check-auth', isAuthenticated, (req, res)=>{
-     res.status(200).json({
-        message:`Welcome back`
-     })
-} )
+router.get('/check-auth', isAuthenticated, (req, res) => {
+   res.status(200).json({
+      message: `Welcome back`
+   })
+})
 
 export default router;
