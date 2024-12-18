@@ -1,4 +1,5 @@
 import { User } from '../models/User.model.js';
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken';
 
 export const UserLogIn = async (req, res) => {
@@ -24,23 +25,24 @@ export const UserLogIn = async (req, res) => {
             })
         }
 
+        const comparePassword = await bcrypt.compareSync(password, user.password)
 
-        if (user.password !== password) {
-          return res.status(400).json({
-            message: "Credentials don't match.",
-            success: false,
-          });
+        if (!comparePassword) {
+            return res.status(400).json({
+                message: "Credentials don't match.",
+                success: false,
+            });
         }
 
         const tokenData = {
             userId: user._id
         }
 
-       const token = jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1D' });
+        const token = jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1D' });
 
         const { password: pass, ...rest } = user._doc;
 
-       return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, https: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, https: true, sameSite: 'strict' }).json({
             message: `Welcome back ${user.name}`,
             success: true,
             userId: user._id
@@ -53,9 +55,9 @@ export const UserLogIn = async (req, res) => {
 
 // logout
 
-export const UserLogOut = async(req, res)=>{
+export const UserLogOut = async (req, res) => {
     try {
-        return res.status(200).cookie('token',"", { maxAge:0}).json({
+        return res.status(200).cookie('token', "", { maxAge: 0 }).json({
             message: "Logged out successfully.",
             success: true
         })
