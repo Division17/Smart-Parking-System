@@ -23,10 +23,6 @@ app.use(cors(corsOptions));
 
 app.use('/api/user', router)
 
-// app.get('/', (req,res,next)=>{
-//     res.send(`<h1>Hello World! </h1>`)
-// })
-
 app.listen(PORT, ()=>{
     console.log(`server is running at port ${PORT}`)
     connectDB();

@@ -28,9 +28,14 @@ const parkingHistorySchema = new mongoose.Schema({
         required: true,
     },
 
-    status: {
+    state: {
         type: String,
         default:'Upcoming' 
+    },
+
+    totalTime: {
+        type: String,
+        default: 'N/A'
     }
 
 },{

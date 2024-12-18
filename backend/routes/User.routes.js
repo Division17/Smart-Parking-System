@@ -4,6 +4,7 @@ import { UserLogIn, UserLogOut } from '../controllers/UserLogin-out.controller.j
 import isAuthenticated from '../middlewares/isAuthenticated.js'
 import GetUserData from '../controllers/GetUserData.controller.js'
 import UserDataUpdate from '../controllers/UserDataUpdate.controller.js';
+import ParkingHistoryController from '../controllers/ParkingHistory.controller.js';
 
 const router = express.Router();
 

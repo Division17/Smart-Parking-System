@@ -1,29 +1,26 @@
-import { User} from '../models/User.model.js'
+import { User } from '../models/User.model.js'
 import bcrypt from 'bcryptjs'
 
 const UserRegister = async (req, res) => {
   const { name, email, number, password } = req.body;
 
-  // Validate input
   if (!name || !email || !number || !password) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
   try {
-    // Check for duplicate email
+
     const existingUserByEmail = await User.findOne({ email });
     if (existingUserByEmail) {
       return res.status(400).json({ error: 'Email already exists' });
     }
 
-    // Check for duplicate phone number
     const existingUserByNumber = await User.findOne({ number });
     if (existingUserByNumber) {
       return res.status(400).json({ error: 'Phone number already exists' });
     }
-    
-    const hashedPassword = await bcrypt.hashSync( password , 10)
-    // Create new user
+
+    const hashedPassword = await bcrypt.hashSync(password, 10)
     const newUser = new User({
       name,
       email,
