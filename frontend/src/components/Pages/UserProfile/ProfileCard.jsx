@@ -15,7 +15,7 @@ useEffect(()=>{
   const handleUpdate = async () => {
     setIsEditing(false);
     try {
-      const response = await axios.get(`/api/user/profile/${id}`);
+      const response = await axios.get(`/api/user/profile/${data._id}`);
       setProfileData(response.data)
     } catch (error) {
      console.log(error)
