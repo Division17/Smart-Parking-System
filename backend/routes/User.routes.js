@@ -13,7 +13,7 @@ router.post('/login', UserLogIn)
 router.post('/logout', isAuthenticated,UserLogOut)
 router.get('/profile/:id', isAuthenticated, GetUserData);
 router.put('/profile/:id', isAuthenticated, UserDataUpdate)
-
+router.put('/book' , ParkingHistoryController)
 router.get('/check-auth', isAuthenticated, (req, res) => {
    res.status(200).json({
       message: `Welcome back`

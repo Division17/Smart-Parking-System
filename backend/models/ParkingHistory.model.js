@@ -1,45 +1,43 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const parkingHistorySchema = new mongoose.Schema({
+  date: {
+    type: Date, 
+    default: () => new Date().toISOString().slice(0, 10), // Extract yyyy-mm-dd
+    required: true,
+  },
 
-    date: {
-        type: Date,
-        default: Date.now,
-        required: true,
-    },
+  place: {
+    type: String,
+    required: true,
+  },
 
-    place: {
-        type: String,
-        required: true,
-    },
+  entryTime: {
+    type: String,
+    required: true,
+  },
 
-    entryTime: {
-        type: Date,
-        required: true,    
-    },
+  exitTime: {
+    type: String,
+    required: true,
+  },
 
-    exitTime: {
-        type: Date,
-   
-    },
+  vehicleNumber: {
+    type: String,
+    required: true,
+  },
 
-    vehicleNumber: {
-        type: String,
-        required: true,
-    },
+  state: {
+    type: String,
+    default: 'Upcoming'
+  },
 
-    state: {
-        type: String,
-        default:'Upcoming' 
-    },
+  totalTime: {
+    type: String,
+    default: 'N/A'
+  }
+}, {
+  timestamps: true
+});
 
-    totalTime: {
-        type: String,
-        default: 'N/A'
-    }
-
-},{
-    timestamps: true
-})
-
-export const ParkingHistory = mongoose.model('ParkingHistory', parkingHistorySchema)
+export const ParkingHistory = mongoose.model('ParkingHistory', parkingHistorySchema);

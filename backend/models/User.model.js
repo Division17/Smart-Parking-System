@@ -44,10 +44,10 @@ const userSchema = new mongoose.Schema({
        default: "N/A"
     },
 
-    parking : [{
-        type: Schema.Types.ObjectId, 
-        ref:'ParkingHistory'
-    }],
+    // parking : [{
+    //     type: Schema.Types.ObjectId, 
+    //     ref:'ParkingHistory'
+    // }],
 
 },{
     timestamps: true
