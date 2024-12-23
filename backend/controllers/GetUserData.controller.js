@@ -11,7 +11,15 @@ const GetUserData = async (req, res) => {
         success: false,
       });
     }
-    return res.status(200).json(user);
+    
+    User.find({}).populate({ path: 'ParkingHistory', model: 'ParkingHistory'}).then((list)=>{
+      res.status(200).json(list)
+    }).catch((err)=>
+    {
+      console.log(err)
+    })
+
+     
   } catch (error) {
     console.error('Error fetching user:', error.message);
     return res.status(500).json({

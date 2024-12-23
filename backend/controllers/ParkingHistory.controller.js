@@ -1,17 +1,21 @@
+import mongoose from 'mongoose';
 import { ParkingHistory } from '../models/ParkingHistory.model.js';
+import { User } from '../models/User.model.js'
 
 const ParkingHistoryController = async (req, res) => {
 
     const { date, place, entryTime, exitTime, vehicleNumber } = req.body;
 
-    if (
+    if ( 
+        !date ||
         !place ||
         !entryTime ||
         (exitTime && exitTime === "") ||
         !vehicleNumber ||
         place === "" ||
         entryTime === "" ||
-        vehicleNumber === ""
+        vehicleNumber === ""||
+        date == ""
     ) {
         res.status(400).json({
             message: "Please provide all data",
@@ -76,7 +80,25 @@ const ParkingHistoryController = async (req, res) => {
 
         await newParkingData.save();
 
-        res.status(200).json({
+    const objId = newParkingData;
+
+       const { id } = req.params;
+      
+       await User.updateOne({
+          id: User._id
+       },
+    {
+        $push:{
+            ParkingHistory: 
+            objId
+        },
+    },
+    { upsert: false, 
+        new: true
+    }
+)
+       
+  res.status(200).json({
             message: "Waiting for your arrival, hope you have a seemless experience.",
             success: true,
             data: newParkingData,
