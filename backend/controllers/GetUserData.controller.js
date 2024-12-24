@@ -19,7 +19,6 @@ const GetUserData = async (req, res) => {
       console.log(err)
     })
 
-     
   } catch (error) {
     console.error('Error fetching user:', error.message);
     return res.status(500).json({

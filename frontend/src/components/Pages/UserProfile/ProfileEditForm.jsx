@@ -17,7 +17,7 @@ function ProfileEditForm({ data, onSubmit, onCancel }) {
    
     try {
       const response = await axios.put(`/api/user/profile/${data._id}`, updatedData)
-      onSubmit(response.data)
+      onSubmit(response.data.user)
     } catch (error) {
       console.error('Error in updating Profile:', error);
     }

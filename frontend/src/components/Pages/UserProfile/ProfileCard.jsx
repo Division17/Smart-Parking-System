@@ -3,24 +3,28 @@ import { User, Mail, Phone, MapPin, Briefcase, Edit2 } from 'lucide-react';
 import ProfileEditForm from './ProfileEditForm';
 import axios from 'axios';
 
-function ProfileCard({data}) {
+function ProfileCard(data) {
   const [isEditing, setIsEditing] = useState(false);
-  const [profileData, setProfileData] = useState(data)
+  const [profileData, setProfileData] = useState({});
 
-useEffect(()=>{
-  setProfileData(data)
-},[data])
-
+  useEffect(() => {
+    if (data) {
+      setProfileData(data.data);
+    }},
+  [setProfileData, data]);
 
   const handleUpdate = async () => {
     setIsEditing(false);
     try {
-      const response = await axios.get(`/api/user/profile/${data._id}`);
-      setProfileData(response.data)
+      const response = await axios.get(`/api/user/profile/${data.data._id}`);
+      setProfileData(response.data[0]);
+      console.log(response.data);
     } catch (error) {
-     console.log(error)
+      console.error('Error updating profile data', error);
     }
   };
+
+
 
   if (isEditing) {
     return (
@@ -62,7 +66,7 @@ useEffect(()=>{
         <div className="flex-1">
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold text-gray-800">{profileData.name}</h2>
-            <p className="text-lg text-gray-600 mt-1">{profileData.title}</p>
+            <p className="text-lg text-gray-600 mt-1">{profileData.profession}</p>
             <p className="text-gray-500 mt-1 flex items-center justify-center md:justify-start gap-1">
               <MapPin className="w-4 h-4" /> {profileData.location}
             </p>
