@@ -20,6 +20,8 @@ const UserProfile = () => {
     };
     fetchData();
   }, [id]);
+
+  console.log(details)
   return (
     <>
       {message && <p className="text-red-600">{message}</p>}

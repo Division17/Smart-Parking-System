@@ -1,7 +1,7 @@
 import { User } from '../models/User.model.js';
 
 const GetUserData = async (req, res) => {
-  const { id } = req.params; // Assuming you fetch user by email
+  const { id } = req.params; 
 
   try {
     const user = await User.findById(id);

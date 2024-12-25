@@ -4,18 +4,7 @@ import { User } from '../models/User.model.js';
 const ParkingHistoryController = async (req, res) => {
     const { date, place, entryTime, exitTime, vehicleNumber } = req.body;
 
-    if (
-        !date ||
-        !vehicleNumber ||
-        !entryTime ||
-        !exitTime ||
-        !place ||
-        date == "" ||
-        vehicleNumber === "" ||
-        entryTime === "" ||
-        exitTime === "" ||
-        place === ""
-    ) {
+    if (!date || !vehicleNumber || !entryTime || !exitTime || !place || date === "" || vehicleNumber === "" || entryTime === "" || exitTime === "" || place === "") {
         res.status(400).json({
             message: "Please provide all data",
             success: false,
@@ -55,9 +44,7 @@ const ParkingHistoryController = async (req, res) => {
         const hours = Math.floor(totalTimeMinutes / 60);
         const minutes = totalTimeMinutes % 60;
 
-        const timeDifference = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-
-        return timeDifference;
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
     }
 
     let totalTime;
@@ -80,12 +67,12 @@ const ParkingHistoryController = async (req, res) => {
 
         const { id } = req.params;
 
-        await User.updateOne(
-            { _id: id },
+        await User.findByIdAndUpdate(
+            id,
             {
-                $push: { Book: newParkingData._id },
+                $push: { ParkingHistory: newParkingData._id },
             },
-            { upsert: false, new: true }
+            { new: true }
         );
 
         res.status(200).json({
