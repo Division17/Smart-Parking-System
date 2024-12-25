@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const parkingHistorySchema = new mongoose.Schema({
+const ParkingHistorySchema = new mongoose.Schema({
   date: {
     type: Date, 
-    default: () => new Date().toISOString().slice(0, 10), // Extract yyyy-mm-dd
+    default: () => new Date().toISOString().slice(0, 10), 
     required: true,
   },
 
@@ -40,4 +40,4 @@ const parkingHistorySchema = new mongoose.Schema({
   timestamps: true
 });
 
-export const ParkingHistory = mongoose.model('ParkingHistory', parkingHistorySchema);
+export const ParkingHistory = mongoose.model('ParkingHistory', ParkingHistorySchema);

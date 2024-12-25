@@ -1,21 +1,20 @@
-import mongoose from 'mongoose';
 import { ParkingHistory } from '../models/ParkingHistory.model.js';
-import { User } from '../models/User.model.js'
+import { User } from '../models/User.model.js';
 
 const ParkingHistoryController = async (req, res) => {
-
     const { date, place, entryTime, exitTime, vehicleNumber } = req.body;
 
-    if ( 
+    if (
         !date ||
-        !place ||
-        !entryTime ||
-        (exitTime && exitTime === "") ||
         !vehicleNumber ||
-        place === "" ||
+        !entryTime ||
+        !exitTime ||
+        !place ||
+        date == "" ||
+        vehicleNumber === "" ||
         entryTime === "" ||
-        vehicleNumber === ""||
-        date == ""
+        exitTime === "" ||
+        place === ""
     ) {
         res.status(400).json({
             message: "Please provide all data",
@@ -24,9 +23,8 @@ const ParkingHistoryController = async (req, res) => {
         return;
     }
 
-
-    let newState
-    let today = new Date().toISOString().slice(0, 10)
+    let newState;
+    let today = new Date().toISOString().slice(0, 10);
 
     if (date > today) {
         newState = 'Upcoming';
@@ -35,7 +33,7 @@ const ParkingHistoryController = async (req, res) => {
     } else {
         newState = 'Completed';
     }
-    
+
     function calculateTimeDifference(entryTime, exitTime) {
         const entryTimeParts = entryTime.split(":");
         const entryHours = parseInt(entryTimeParts[0]);
@@ -80,26 +78,18 @@ const ParkingHistoryController = async (req, res) => {
 
         await newParkingData.save();
 
-    const objId = newParkingData;
+        const { id } = req.params;
 
-       const { id } = req.params;
-      
-       await User.updateOne({
-          id: User._id
-       },
-    {
-        $push:{
-            ParkingHistory: 
-            objId
-        },
-    },
-    { upsert: false, 
-        new: true
-    }
-)
-       
-  res.status(200).json({
-            message: "Waiting for your arrival, hope you have a seemless experience.",
+        await User.updateOne(
+            { _id: id },
+            {
+                $push: { Book: newParkingData._id },
+            },
+            { upsert: false, new: true }
+        );
+
+        res.status(200).json({
+            message: "Waiting for your arrival, hope you have a seamless experience.",
             success: true,
             data: newParkingData,
         });

@@ -1,9 +1,14 @@
-import React from 'react';
-import { Car, Clock, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Calendar, Car, Clock, MapPin } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import BookingInput from './BookingInput'
+function BookingForm({ formData, onChange }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [message, setMessage] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-function BookingForm({ formData, onChange, onSubmit }) {
   const parkingLocations = [
     'Level 1 - A Block',
     'Level 1 - B Block',
@@ -13,28 +18,111 @@ function BookingForm({ formData, onChange, onSubmit }) {
     'Disabled Parking',
   ];
 
-  return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <BookingInput
-        id="vehicleNumber"
-        label="Vehicle Number"
-        icon={<Car size={20} />}
-        type="text"
-        placeholder="Enter vehicle number"
-        value={formData.vehicleNumber}
-        onChange={(value) => onChange('vehicleNumber', value)}
-        required
-      />
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      <BookingInput
-        id="entryTime"
-        label="Entry Time"
-        icon={<Clock size={20} />}
-        type="time"
-        value={formData.entryTime}
-        onChange={(value) => onChange('entryTime', value)}
-        required
-      />
+    const updatedData = {
+      date: formData.date,
+      vehicleNumber: formData.vehicleNumber,
+      entryTime: formData.entryTime,
+      exitTime: formData.exitTime,
+      place: formData.place,
+    };
+
+    try {
+      const response = await axios.post(`/api/user/book/${id}`, updatedData);
+      setMessage('Booking successful!');
+      setIsSubmitted(true); 
+    } catch (error) {
+      setMessage(error.response?.data?.message || 'An error occurred');
+    }
+  };
+
+
+  useEffect(() => { 
+    if (isSubmitted) {
+       navigate(`/profile/${id}`);
+       } }, [isSubmitted]);
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor='date' className="block text-sm font-medium text-gray-700 mb-2">
+          Arrival Date
+        </label>
+        <div className="relative">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <Calendar size={20} />
+          </div>
+          <input
+            id='date'
+            type='date'
+            required
+            placeholder="Enter arrival date"
+            className="pl-10 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            value={formData.date}
+            onChange={(e) => onChange('date', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor='vehicleNumber' className="block text-sm font-medium text-gray-700 mb-2">
+          Vehicle Number
+        </label>
+        <div className="relative">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <Car size={20} />
+          </div>
+          <input
+            id='vehicleNumber'
+            type='text'
+            required
+            placeholder="Enter vehicle number"
+            className="pl-10 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            value={formData.vehicleNumber}
+            onChange={(e) => onChange('vehicleNumber', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor='entryTime' className="block text-sm font-medium text-gray-700 mb-2">
+          Entry Time
+        </label>
+        <div className="relative">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <Clock size={20} />
+          </div>
+          <input
+            id='entryTime'
+            type='time'
+            required
+            className="pl-10 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            value={formData.entryTime}
+            onChange={(e) => onChange('entryTime', e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor='exitTime' className="block text-sm font-medium text-gray-700 mb-2">
+          Exit Time
+        </label>
+        <div className="relative">
+          <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <Clock size={20} />
+          </div>
+          <input
+            id='exitTime'
+            type='time'
+            required
+            className="pl-10 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            value={formData.exitTime}
+            onChange={(e) => onChange('exitTime', e.target.value)}
+          />
+        </div>
+      </div>
 
       <div>
         <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
@@ -46,8 +134,8 @@ function BookingForm({ formData, onChange, onSubmit }) {
             id="location"
             required
             className="pl-10 w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
-            value={formData.location}
-            onChange={(e) => onChange('location', e.target.value)}
+            value={formData.place}
+            onChange={(e) => onChange('place', e.target.value)}
           >
             <option value="">Select parking location</option>
             {parkingLocations.map((loc) => (
@@ -66,8 +154,9 @@ function BookingForm({ formData, onChange, onSubmit }) {
         <Car size={20} />
         <span>Book Parking Spot</span>
       </button>
+      {message && <p className="mt-4 text-center text-red-600">{message}</p>}
     </form>
   );
 }
 
-export default BookingForm
+export default BookingForm;

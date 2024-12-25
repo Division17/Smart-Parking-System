@@ -25,9 +25,9 @@ export function SignUpForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('/api/user/signup', formData);
+      await axios.post('/api/user/signup', formData);
       setLoading(false);
-      navigate('/login'); // Redirect to login page
+      navigate('/login');
     } catch (error) {
       setLoading(false);
       setMessage(error.response.data.message);
@@ -37,7 +37,7 @@ export function SignUpForm() {
   return (
     <div className="w-full max-w-sm mx-auto mt-10">
       {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75">
+        <div className="fixed inset-0 font-extrabold text-2xl flex items-end justify-center bg-gray-100 bg-opacity-50">
           <div className="loader">Loading...</div>
         </div>
       )}
@@ -67,18 +67,7 @@ export function SignUpForm() {
             className="pl-10 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
           />
         </div>
-        {/* <div className="relative flex items-center">
-          <Car className="absolute left-3 w-5 h-5 text-gray-400" />
-          <input
-            type="text"
-            name="vehiclenumber"
-            placeholder="Vehicle Number"
-            value={formData.vehiclenumber}
-            onChange={handleChange}
-            required
-            className="pl-10 w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-          />
-        </div> */}
+        
         <div className="relative flex items-center">
           <Mail className="absolute left-3 w-5 h-5 text-gray-400" />
           <input

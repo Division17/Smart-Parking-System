@@ -7,9 +7,12 @@ function SuccessMessage({ formData, onReset }) {
       <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4 animate-bounce" />
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Booking Confirmed!</h2>
       <div className="space-y-2 mb-6">
+       <p className="text-gray-600">Date: {formData.date}</p>
         <p className="text-gray-600">Vehicle Number: {formData.vehicleNumber}</p>
         <p className="text-gray-600">Entry Time: {formData.entryTime}</p>
+        <p className="text-gray-600">Exit Time: {formData.exitTime}</p>
         <p className="text-gray-600">Location: {formData.location}</p>
+        
       </div>
       <button
         onClick={onReset}

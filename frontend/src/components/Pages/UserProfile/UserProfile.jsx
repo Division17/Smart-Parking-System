@@ -20,18 +20,17 @@ const UserProfile = () => {
     };
     fetchData();
   }, [id]);
-// console.log(details)
   return (
     <>
       {message && <p className="text-red-600">{message}</p>}
       <div className="w-full flex items-center pt-16 flex-col">
         <div className="">
-          {details ? ( // Conditional rendering based on details existence
+          {details ? (
             <ProfileCard data={details} />
           ) : (
             <p>Loading user details...</p>
           )}
-          <ParkingHistory />
+          <ParkingHistory data={details.ParkingHistory}/>
         </div>
       </div>
     </>

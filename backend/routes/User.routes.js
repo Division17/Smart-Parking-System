@@ -11,8 +11,8 @@ const router = express.Router();
 router.post('/signup', UserRegister)
 router.post('/login', UserLogIn)
 router.post('/logout',UserLogOut)
-router.get('/profile/:id', GetUserData);
-router.put('/profile/:id', UserDataUpdate)
+router.get('/profile/:id',isAuthenticated, GetUserData);
+router.put('/profile/:id',isAuthenticated, UserDataUpdate)
 router.post('/book/:id', ParkingHistoryController)
 router.get('/check-auth', isAuthenticated, (req, res) => {
    res.status(200).json({

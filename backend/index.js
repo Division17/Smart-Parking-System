@@ -7,7 +7,7 @@ import router from './routes/User.routes.js';
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT =  process.env.PORT || 3000  ;
 
 const app = express();
 

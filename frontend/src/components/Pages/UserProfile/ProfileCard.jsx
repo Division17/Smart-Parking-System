@@ -18,7 +18,6 @@ function ProfileCard(data) {
     try {
       const response = await axios.get(`/api/user/profile/${data.data._id}`);
       setProfileData(response.data[0]);
-      console.log(response.data);
     } catch (error) {
       console.error('Error updating profile data', error);
     }

@@ -4,6 +4,7 @@ import axios from 'axios';
 function ProfileEditForm({ data, onSubmit, onCancel }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const formData = new FormData(e.currentTarget);
     const updatedData = {
       name: formData.get('name'),

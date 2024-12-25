@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import {CircleParking} from 'lucide-react';
+import { CircleParking } from 'lucide-react';
 import BookingForm from './BookingForm';
 import SuccessMessage from './SuccessMessage';
 
 function BookingMain() {
   const [formData, setFormData] = useState({
+    date: '',
     vehicleNumber: '',
     entryTime: '',
-    location: '',
+    exitTime: '',
+    place: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = () => {
-    setFormData((prev) => ({ ...prev }));
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -22,7 +24,7 @@ function BookingMain() {
 
   const handleReset = () => {
     setIsSubmitted(false);
-    setFormData({ vehicleNumber: '', entryTime: '', location: '' });
+    setFormData({ date: '', vehicleNumber: '', entryTime: '', exitTime: '', place: '' });
   };
 
   return (
@@ -58,4 +60,4 @@ function BookingMain() {
   );
 }
 
-export default BookingMain
+export default BookingMain;
