@@ -2,16 +2,17 @@ import React,{ useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-const ParkingHistory = (data) => {
+const ParkingHistory = ({data}) => {
  const { id } = useParams()
   const [ parkingData, setParkingData ] = useState([])
   useEffect(()=>{
     if(data){
       setParkingData(data)
+      console.log(data)
     }
-  },[data])
+  }, [])
 
-  console.log("parking:"+parkingData)
+
    
 
   return (
@@ -35,17 +36,29 @@ const ParkingHistory = (data) => {
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"> Exit Time </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"> Total Time </th>
                     <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"> Vehicle Number </th>
+                    <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"> Status </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.date}</td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.place}</td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.Entery_Time}</td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.Exit_time} </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.Total_time} </td>
-                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {parkingData.Vehicle_no} </td>
-                  </tr>
+                
+
+                    {
+                      parkingData.map((response)=>{
+                         return(
+                          <tr key={response._id}>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.date}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.place}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.entryTime}</td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.exitTime} </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.totalTime} </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.vehicleNumber} </td>
+                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.state} </td>
+                    </tr>
+                         )
+                      })
+                    }
+                  
+                 
                 </tbody>
               </table>
             </div>

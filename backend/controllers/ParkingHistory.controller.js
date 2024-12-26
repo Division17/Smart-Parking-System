@@ -13,7 +13,9 @@ const ParkingHistoryController = async (req, res) => {
     }
 
     let newState;
-    let today = new Date().toISOString().slice(0, 10);
+    let today = new Date().toISOString().slice(0, 10)
+
+  
 
     if (date > today) {
         newState = 'Upcoming';

@@ -21,7 +21,6 @@ const UserProfile = () => {
     fetchData();
   }, [id]);
 
-  console.log(details)
   return (
     <>
       {message && <p className="text-red-600">{message}</p>}
@@ -32,7 +31,12 @@ const UserProfile = () => {
           ) : (
             <p>Loading user details...</p>
           )}
-          <ParkingHistory data={details.ParkingHistory}/>
+           {details.ParkingHistory ? (
+           <ParkingHistory data={details.ParkingHistory}/>
+          ) : (
+            <p>Loading user details...</p>
+          )}
+          
         </div>
       </div>
     </>
