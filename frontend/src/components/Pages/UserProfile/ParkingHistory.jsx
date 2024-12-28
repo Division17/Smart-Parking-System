@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ParkingHistory = ({ data }) => {
-  const { id } = useParams()
-  const [parkingData, setParkingData] = useState([])
+  const { id } = useParams();
+  const [parkingData, setParkingData] = useState([]);
+  
   useEffect(() => {
     if (data) {
-      setParkingData(data)
+      setParkingData(data);
     }
-  }, [])
+  }, [data]);
 
-
-
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-GB'); 
+  };
 
   return (
     <>
@@ -20,7 +23,9 @@ const ParkingHistory = ({ data }) => {
         <div className="mb-4 w-full flex justify-between items-center">
           <h2 className="text-2xl font-bold text-gray-800">Parking History</h2>
           <Link to={`/book/${id}`}>
-            <button className='border-2  border-blue-900 font-semibold text-white hover:font-bold hover:ring-2  ring-blue-900 bg-blue-700 font-short rounded-lg px-2 py-1 hover:scale-105 hover:transition-transform '>Book Next</button>
+            <button className='border-2 border-blue-900 font-semibold text-white hover:font-bold hover:ring-2 ring-blue-900 bg-blue-700 font-short rounded-lg px-2 py-1 hover:scale-105 hover:transition-transform'>
+              Book Next
+            </button>
           </Link>
         </div>
         <div className="container mx-auto">
@@ -39,13 +44,11 @@ const ParkingHistory = ({ data }) => {
                   </tr>
                 </thead>
                 <tbody>
-
-
                   {
                     parkingData.map((response) => {
                       return (
                         <tr key={response._id}>
-                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.date}</td>
+                          <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {formatDate(response.date)}</td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.place}</td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.entryTime}</td>
                           <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm"> {response.exitTime} </td>
@@ -56,17 +59,14 @@ const ParkingHistory = ({ data }) => {
                       )
                     })
                   }
-
-
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default ParkingHistory
+export default ParkingHistory;

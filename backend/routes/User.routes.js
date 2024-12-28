@@ -5,6 +5,7 @@ import isAuthenticated from '../middlewares/isAuthenticated.js'
 import GetUserData from '../controllers/GetUserData.controller.js'
 import UserDataUpdate from '../controllers/UserDataUpdate.controller.js';
 import ParkingHistoryController from '../controllers/ParkingHistory.controller.js';
+import UserAuth from "../controllers/UserAuth.controller.js"
 
 const router = express.Router();
 
@@ -15,10 +16,6 @@ router.get('/profile/:id',isAuthenticated, GetUserData);
 router.put('/profile/:id',isAuthenticated, UserDataUpdate)
 router.post('/book/:id', isAuthenticated, ParkingHistoryController)
 router.get('/logout', UserLogOut)
-router.get('/check-auth', isAuthenticated, (req, res) => {
-   res.status(200).json({
-      message: `Welcome back`
-   })
-})
+router.get('/auth', UserAuth )
 
 export default router;
