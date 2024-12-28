@@ -18,25 +18,10 @@ const NavBtns = () => {
     }
   };
 
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
 
   return (
     <div className='bg-white dark:bg-gray-900 p-4'>
-      <button
-        onClick={toggleDarkMode}
-        className='p-2 m-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-lg'
-      >
-        Toggle Dark Mode
-      </button>
+    
       <div className='flex gap-6 font-short font-normal text-sm '>
         {isAuthenticated ? (
           <div>
