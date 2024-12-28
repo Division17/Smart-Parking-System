@@ -5,7 +5,7 @@ function Team() {
   let teamMembers = [
     {
       name: 'Dhirender Pratap Singh',
-      image: 'https://media.licdn.com/dms/image/v2/D4D03AQF8Jk3_DDL1rw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1695220427749?e=1739404800&v=beta&t=aFUXHI1T0tLVt2xQvQxIACsB5W7lxazLm5GYZ5lcP4o',
+      image: 'https://media.licdn.com/dms/image/v2/D5635AQGpGdAgErH7Vw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1734872623706?e=1735992000&v=beta&t=BRq3-P8zH2NmFDacWhL87pUXFPt1s3EIbxL8pEMOEnw',
       email: 'saurav71412@gmail.com',
       linkedin: 'https://www.linkedin.com/in/dhirender-pratap-singh-d1705/',
       twitter: 'https://x.com/DhirendrePratap',
@@ -14,7 +14,7 @@ function Team() {
     },
     {
       name: 'Sapna Singh',
-      image: 'https://media.licdn.com/dms/image/v2/D5635AQEACBfTyZ2ARw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1719441209076?e=1734786000&v=beta&t=7WrRiE0vdFS8O18YkH2j3trStHTr1XwSlbrix22ACd4',
+      image: 'https://media.licdn.com/dms/image/v2/D5635AQEACBfTyZ2ARw/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1719441209076?e=1735992000&v=beta&t=nZ9YxqGW3sXDffUw1NcSzsc-bYbhWmUL57RA9669g6k',
       email: 'sappysingh1004@gmail.com',
       linkedin: 'https://www.linkedin.com/in/sapna-singh-3933b9228/',
       bio: '',
