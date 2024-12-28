@@ -26,20 +26,22 @@ const Features = () => {
   ];
 
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-5xl font-extrabold font-coming text-center mb-12 text-gray-800">
+        <h2 className="text-5xl font-extrabold font-coming text-center mb-12 text-gray-800 dark:text-gray-200">
           Why Choose ParkEase?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1"
             >
-              <div className="text-indigo-600 mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <div className="text-indigo-600 dark:text-indigo-400 mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
             </div>
           ))}
         </div>

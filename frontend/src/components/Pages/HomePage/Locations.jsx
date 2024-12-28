@@ -21,9 +21,9 @@ const Locations = () => {
   ];
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-5xl font-extrabold font-coming text-center mb-12 text-gray-800">Popular Locations</h2>
+        <h2 className="text-5xl font-extrabold font-coming text-center mb-12 text-gray-800 dark:text-gray-200">Popular Locations</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {locations.map((location, index) => (
             <div
@@ -37,7 +37,7 @@ const Locations = () => {
                   className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent dark:from-black/90">
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center text-white mb-2">
                     <MapPin className="w-5 h-5 mr-2" />

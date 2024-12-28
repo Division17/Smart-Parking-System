@@ -27,17 +27,17 @@ const Testimonials = () => {
   ];
 
   return (
-    <div className="py-16 bg-gray-100">
+    <div className="py-16 bg-gray-100 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <Quote className="w-12 h-12 text-indigo-600 mx-auto mb-4" />
-          <h2 className="text-3xl font-bold text-gray-800">What Our Users Say</h2>
+          <Quote className="w-12 h-12 text-indigo-600 dark:text-indigo-400 mx-auto mb-4" />
+          <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200">What Our Users Say</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div className="flex items-center mb-4">
                 <img
@@ -46,8 +46,8 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div className="ml-4">
-                  <h3 className="font-semibold text-gray-800">{testimonial.name}</h3>
-                  <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                  <h3 className="font-semibold text-gray-800 dark:text-gray-200">{testimonial.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{testimonial.role}</p>
                 </div>
               </div>
               <div className="flex mb-4">
@@ -55,7 +55,7 @@ const Testimonials = () => {
                   <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600">{testimonial.text}</p>
+              <p className="text-gray-600 dark:text-gray-400">{testimonial.text}</p>
             </div>
           ))}
         </div>
