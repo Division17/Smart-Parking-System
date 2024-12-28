@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import HomePage from './components/Pages/HomePage/HomePage'
@@ -8,14 +8,26 @@ import LoginPage from './components/Pages/Login/LoginPage'
 import SignUpPage from './components/Pages/SignUP/SignUpPage'
 import BookingMain from './components/Pages/BookingPage/BookingMain'
 import UserProfile from "./components/Pages/UserProfile/UserProfile";
-
+import { ThemeProvider } from './contexts/ThemeContext'
+import { useState } from "react";
 
 
 function App() {
 
+  const [ themeMode, setThemeMode]= useState("light")
+
+  const lightTheme = () =>{
+    setThemeMode("light")
+  }
+
+  const darkTheme = () =>{
+    setThemeMode("dark")
+  }
+  
 
   return (
-    <>
+    <>  
+      <ThemeProvider value={{themeMode, lightTheme, darkTheme}}>
       <BrowserRouter>
         <Header></Header>
         <Routes>
@@ -29,7 +41,7 @@ function App() {
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
-
+      </ThemeProvider>
     </>
   )
 }
