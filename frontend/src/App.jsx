@@ -9,7 +9,7 @@ import SignUpPage from './components/Pages/SignUP/SignUpPage'
 import BookingMain from './components/Pages/BookingPage/BookingMain'
 import UserProfile from "./components/Pages/UserProfile/UserProfile";
 import { ThemeProvider } from './contexts/ThemeContext'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function App() {
@@ -24,6 +24,10 @@ function App() {
     setThemeMode("dark")
   }
   
+  useEffect(()=>{
+    document.querySelector('html').classList.remove("light","dark")
+    document.querySelector('html').classList.add(themeMode)
+  },[themeMode])
 
   return (
     <>  
