@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [themeMode, setThemeMode] = useState("light");
-
   const lightTheme = () => {
     setThemeMode("light");
   };
@@ -28,7 +27,6 @@ function App() {
   }, [themeMode]);
 
   return (
-    <>  
       <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
         <BrowserRouter>
           <Header />
@@ -44,7 +42,6 @@ function App() {
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
-    </>
   );
 }
 
