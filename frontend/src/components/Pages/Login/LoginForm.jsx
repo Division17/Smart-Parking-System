@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Lock, Mail } from 'lucide-react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import useAuth from '../../../contexts/AuthContext'
 
 export function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
+    const {isAuthenticated, setIsAuthenticated} = useAuth()
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -17,6 +19,7 @@ export function LoginForm() {
             const response = await axios.post('/api/user/login', { email, password });
             setMessage(response.data.message);
             setLoading(false);
+            setIsAuthenticated(true)
             navigate(`/profile/${response.data.userId}`);
         } catch (error) {
             setLoading(false);

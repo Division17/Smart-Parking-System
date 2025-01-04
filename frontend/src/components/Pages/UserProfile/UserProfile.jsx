@@ -18,7 +18,7 @@ const UserProfile = () => {
         setMessage('Error fetching user details', error);
       }
     };
-    fetchData();
+        fetchData();   
   }, [id]);
 
   return (

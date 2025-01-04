@@ -11,18 +11,21 @@ export function AuthProvider({ children }) {
         const auth = async () => {
             try {
                 const response = await axios.get('/api/user/auth');
-                setIsAuthenticated(response.data.isAuthorized);
-                console.log(response.data.isAuthorized)
+                if (response.status === 200) {
+                    setIsAuthenticated(true);
+                } else {
+                    setIsAuthenticated(false);
+                }
             } catch (error) {
-                console.error('Error during authentication:', error);
-                setIsAuthenticated(false); 
+                setIsAuthenticated(false);
+
             }
         };
 
         auth();
-    }, []); 
+    }, []);
     return (
-        <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated}}>
+        <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
             {children}
         </AuthContext.Provider>
     );

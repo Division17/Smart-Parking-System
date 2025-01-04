@@ -16,6 +16,6 @@ router.get('/profile/:id',isAuthenticated, GetUserData);
 router.put('/profile/:id',isAuthenticated, UserDataUpdate)
 router.post('/book/:id', isAuthenticated, ParkingHistoryController)
 router.get('/logout', UserLogOut)
-router.get('/auth',isAuthenticated, UserAuth)
+router.get('/auth', UserAuth)
 
 export default router;
