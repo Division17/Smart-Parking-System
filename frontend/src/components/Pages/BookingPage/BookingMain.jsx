@@ -29,13 +29,13 @@ function BookingMain() {
 
   return (
     <div className="min-h-screen relative">
-      <div className="container mx-auto px-4 py-16 relative">
+      <div className="container mx-auto px-4 py-8 relative">
         <div className="max-w-md mx-auto">
-          <div className="text-center mb-8 animate-fadeIn">
-            <div className="inline-block p-3 bg-blue-100 rounded-full mb-4 hover:rotate-12 transition-transform duration-300">
+          <div className="text-center mb-4 animate-fadeIn">
+            <div className="inline-block p-3 bg-blue-100 rounded-full mb-2 hover:rotate-12 transition-transform duration-300">
               <CircleParking className="w-8 h-8 text-blue-600" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Book your spot</h1>
+            <h1 className="text-3xl font-bold text-gray-900 ">Book your spot</h1>
             <p className="text-gray-600">In seconds just by a simple click</p>
           </div>
 
@@ -51,7 +51,7 @@ function BookingMain() {
             )}
           </div>
 
-          <p className="text-center text-sm text-gray-500 mt-8">
+          <p className="text-center text-sm text-gray-500 mt-6">
             Secure • Convenient • Available 24/7
           </p>
         </div>

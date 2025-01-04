@@ -45,7 +45,7 @@ function BookingForm({ formData, onChange }) {
        } }, [isSubmitted]);
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor='date' className="block text-sm font-medium text-gray-700 mb-2">
           Arrival Date
@@ -153,6 +153,13 @@ function BookingForm({ formData, onChange }) {
       >
         <Car size={20} />
         <span>Book Parking Spot</span>
+      </button>
+
+      <button
+        onClick={()=>{navigate(`/profile/${id}`)}}
+        className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center space-x-2"
+      >
+        <span>User Profile</span>
       </button>
       {message && <p className="mt-4 text-center text-red-600">{message}</p>}
     </form>

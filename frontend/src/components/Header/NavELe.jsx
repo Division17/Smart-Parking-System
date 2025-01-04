@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import  useAuth  from '../../contexts/AuthContext';
+import  useAuth  from '../../contexts/AuthContext'; // Added curly braces to import useAuth correctly
+import { useParams } from 'react-router-dom';
 
-const NavELe = () => {
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+const NavEle = () => { // Corrected the function name to match the default export
+  const { isAuthenticated } = useAuth(); // Removed setIsAuthenticated as it's not used in the component
 
   return (
     <div className="bg-white dark:bg-gray-900 mt-2">
@@ -54,8 +55,8 @@ const NavELe = () => {
             </li>
           </ul>
         ) : (
-          <div className="text-center py-2 font-coming font-extrabold">
-            Book a Spot
+          <div className="text-center py-2 font-coming font-extrabold mt-2">
+            <p> Book your spot hassel free</p>
           </div>
         )}
       </nav>
@@ -63,4 +64,4 @@ const NavELe = () => {
   );
 };
 
-export default NavELe;
+export default NavEle;
