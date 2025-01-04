@@ -1,27 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../contexts/AuthContext';
 import axios from 'axios';
 
 const NavBtns = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
   const handleLogout = async () => {
     try {
       const response = await axios.get('/api/user/logout');
-      setIsAuthenticated(false);
       if (response) {
-        navigate('/');
+        setIsAuthenticated(false);
+        navigate('/login');
       }
     } catch (error) {
       alert(error);
     }
   };
 
-
   return (
     <div className='bg-white dark:bg-gray-900 p-4'>
-    
       <div className='flex gap-6 font-short font-normal text-sm '>
         {isAuthenticated ? (
           <div>

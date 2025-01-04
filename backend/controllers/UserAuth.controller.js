@@ -23,7 +23,7 @@ const UserAuth = async (req, res) => {
 res.json({
     message:'Authorized',
     success: true,
-    isAutherized: true
+    isAuthorized: true
 })
   } catch (error) {
     console.log(error);

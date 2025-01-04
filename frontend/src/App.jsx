@@ -9,6 +9,7 @@ import SignUpPage from './components/Pages/SignUP/SignUpPage';
 import BookingMain from './components/Pages/BookingPage/BookingMain';
 import UserProfile from "./components/Pages/UserProfile/UserProfile";
 import { ThemeProvider } from './contexts/ThemeContext';
+import { AuthProvider } from './contexts/AuthContext'
 import { useEffect, useState } from "react";
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
 
   return (
       <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
-        <BrowserRouter>
+      <AuthProvider>
+      <BrowserRouter>
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -41,6 +43,7 @@ function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
+      </AuthProvider>
       </ThemeProvider>
   );
 }
