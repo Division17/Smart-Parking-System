@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
 
     imageUrl: {
         type:String,
-        default: "https://static.vecteezy.com/system/resources/previews/000/623/239/original/auto-car-logo-template-vector-icon.jpg",
+        default: "https://images.vexels.com/media/users/3/128997/isolated/preview/054a28914528d95e7d0faa63da939eef-vintage-car-circle-icon.png",
     },
 
     bio: {

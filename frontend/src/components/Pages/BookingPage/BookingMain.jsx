@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CircleParking } from 'lucide-react';
 import BookingForm from './BookingForm';
 import SuccessMessage from './SuccessMessage';
+import ParkingInfo from './ParkingInfo'; 
 
 function BookingMain() {
   const [formData, setFormData] = useState({
@@ -28,9 +29,9 @@ function BookingMain() {
   };
 
   return (
-    <div className="min-h-screen relative">
-      <div className="container mx-auto px-4 py-8 relative">
-        <div className="max-w-md mx-auto">
+    <div className="min-h-screen flex my-6">
+      <div className="w-5/6 flex items-center justify-center">
+        <div className="max-w-md w-2/3">
           <div className="text-center mb-4 animate-fadeIn">
             <div className="inline-block p-3 bg-blue-100 rounded-full mb-2 hover:rotate-12 transition-transform duration-300">
               <CircleParking className="w-8 h-8 text-blue-600" />
@@ -55,6 +56,10 @@ function BookingMain() {
             Secure • Convenient • Available 24/7
           </p>
         </div>
+      </div>
+
+      <div className="w-1/6 bg-white border-2 border-red-500 flex items-center justify-center p-4">
+        <ParkingInfo />
       </div>
     </div>
   );

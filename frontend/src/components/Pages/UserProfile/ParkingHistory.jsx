@@ -23,8 +23,8 @@ const ParkingHistory = ({ data }) => {
         <div className="mb-4 w-full flex justify-between items-center">
           <h2 className="text-2xl font-bold text-gray-800">Parking History</h2>
           <Link to={`/book/${id}`}>
-            <button className='border-2 border-blue-900 font-semibold text-white hover:font-bold hover:ring-2 ring-blue-900 bg-blue-700 font-short rounded-lg px-2 py-1 hover:scale-105 hover:transition-transform'>
-              Book Next
+            <button className='border-2 border-blue-800 font-semibold text-white hover:font-bold hover:ring-1 ring-blue-800 bg-blue-500 font-short rounded-lg px-2 py-1 hover:scale-105 hover:transition-transform'>
+              Book Your SPot
             </button>
           </Link>
         </div>

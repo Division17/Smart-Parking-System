@@ -10,12 +10,7 @@ function BookingForm({ formData, onChange }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const parkingLocations = [
-    'Level 1 - A Block',
-    'Level 1 - B Block',
-    'Level 2 - A Block',
-    'Level 2 - B Block',
-    'VIP Parking',
-    'Disabled Parking',
+   'Parking Lot-A'
   ];
 
   const handleSubmit = async (e) => {

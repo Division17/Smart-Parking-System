@@ -4,7 +4,6 @@ import { Mail, Linkedin, Twitter } from 'lucide-react';
 function TeamMember(
   { 
     name = '', 
-    role = '', 
     image = '', 
     email = '', 
     linkedin = '', 
