@@ -6,6 +6,7 @@ import GetUserData from '../controllers/GetUserData.controller.js'
 import UserDataUpdate from '../controllers/UserDataUpdate.controller.js';
 import ParkingHistoryController from '../controllers/ParkingHistory.controller.js';
 import UserAuth from "../controllers/UserAuth.controller.js"
+import ParkingLotDetails from '../controllers/GetParkingDetails.controller.js';
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ router.post('/logout',UserLogOut)
 router.get('/profile/:id',isAuthenticated, GetUserData);
 router.put('/profile/:id',isAuthenticated, UserDataUpdate)
 router.post('/book/:id', isAuthenticated, ParkingHistoryController)
+router.get('/parkingLotDetails', ParkingLotDetails)
 router.get('/logout', UserLogOut)
 router.get('/auth', UserAuth)
 

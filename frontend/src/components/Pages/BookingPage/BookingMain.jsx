@@ -58,7 +58,7 @@ function BookingMain() {
         </div>
       </div>
 
-      <div className="w-1/6 bg-white border-2 border-red-500 flex items-center justify-center p-4">
+      <div className="w-2/6 bg-white flex items-center justify-center p-4">
         <ParkingInfo />
       </div>
     </div>
